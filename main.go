@@ -11,16 +11,16 @@ import (
 func getInput(prompt string, r *bufio.Reader) (string, error) {
 	fmt.Print(prompt)
 
-	input, _ := reader.ReadString('\n')
+	input, err := r.ReadString('\n')
+
+	return strings.TrimSpace(input), err
 }
 
 // create a reader - for the terminal
 func createCocktail() cocktail {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Cocktail name: ")
-	name, _ := reader.ReadString('\n')
-	name = strings.TrimSpace(name)
+	name, _ := getInput("Cocktail name: ", reader)
 
 	c := oneCocktail(name)
 	fmt.Println("Created a cocktail: ", c.name)
