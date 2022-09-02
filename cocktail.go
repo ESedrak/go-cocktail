@@ -12,7 +12,7 @@ type cocktail struct {
 func oneCocktail(name string) cocktail {
 	c := cocktail{
 		name:         name,
-		ingredients:  map[string]int64{"vodka": 90, "lime": 45, "agave syrup": 15},
+		ingredients:  map[string]int64{},
 		instructions: "",
 	}
 
@@ -29,4 +29,9 @@ func (c cocktail) format() string {
 	}
 
 	return fs
+}
+
+// add ingredients
+func (c cocktail) addIngredients(name string, amount int64) {
+	c.ingredients[name] = amount
 }

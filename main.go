@@ -6,5 +6,6 @@ import (
 
 func main() {
 	newCocktail := oneCocktail("Margarita")
+
 	fmt.Println(newCocktail.format())
 }
