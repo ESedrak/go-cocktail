@@ -28,8 +28,16 @@ func createCocktail() cocktail {
 	return c
 }
 
+func promptOptions(c cocktail) {
+	reader := bufio.NewReader(os.Stdin)
+
+	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)", reader)
+	fmt.Println(opt)
+}
+
 func main() {
 	myCocktail := createCocktail()
+	promptOptions(myCocktail)
 
 	fmt.Println(myCocktail)
 }
