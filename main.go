@@ -7,6 +7,13 @@ import (
 	"strings"
 )
 
+// helper function
+func getInput(prompt string, r *bufio.Reader) (string, error) {
+	fmt.Print(prompt)
+
+	input, _ := reader.ReadString('\n')
+}
+
 // create a reader - for the terminal
 func createCocktail() cocktail {
 	reader := bufio.NewReader(os.Stdin)
