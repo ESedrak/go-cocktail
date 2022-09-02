@@ -36,9 +36,14 @@ func promptOptions(c cocktail) {
 
 	switch opt {
 	case "a":
-		fmt.Println("You chose a")
+		name, _ := getInput("Ingredient name: ", reader)
+		amount, _ := getInput("Ingredient amount(mls): ", reader)
+		fmt.Printf("Added: %v %vmls \n", name, amount)
+		promptOptions(c)
 	case "i":
-		fmt.Println("You chose i")
+		instructions, _ := getInput("Instructions to create a cocktail: ", reader)
+		fmt.Println(instructions)
+		promptOptions(c)
 	case "s":
 		fmt.Println("You chose s")
 	default:
