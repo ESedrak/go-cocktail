@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -38,6 +39,10 @@ func promptOptions(c cocktail) {
 	case "a":
 		name, _ := getInput("Ingredient name: ", reader)
 		amount, _ := getInput("Ingredient amount(mls): ", reader)
+
+		// To return amount in an int(not the default string)
+		a, err := strconv.ParseUint(amount, 64)
+
 		fmt.Printf("Added: %v %vmls \n", name, amount)
 		promptOptions(c)
 	case "i":
