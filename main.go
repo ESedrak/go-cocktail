@@ -33,11 +33,21 @@ func promptOptions(c cocktail) {
 
 	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)", reader)
 	fmt.Println(opt)
+
+	switch opt {
+	case "a":
+		fmt.Println("You chose a")
+	case "i":
+		fmt.Println("You chose i")
+	case "s":
+		fmt.Println("You chose s")
+	default:
+		fmt.Println("You did not choose a valid option")
+		promptOptions(c)
+	}
 }
 
 func main() {
 	myCocktail := createCocktail()
 	promptOptions(myCocktail)
-
-	fmt.Println(myCocktail)
 }
