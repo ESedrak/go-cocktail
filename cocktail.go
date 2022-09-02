@@ -32,6 +32,11 @@ func (c cocktail) format() string {
 }
 
 // add ingredients
-func (c cocktail) addIngredients(name string, amount int64) {
+func (c *cocktail) addIngredients(name string, amount int64) {
 	c.ingredients[name] = amount
+}
+
+// add instructions
+func (c *cocktail) addIntructions(instructions string) {
+	c.instructions = instructions
 }
