@@ -20,7 +20,7 @@ func oneCocktail(name string) cocktail {
 }
 
 // Format the cocktail
-func (c cocktail) format() string {
+func (c *cocktail) format() string {
 	fs := "Cocktail list \n"
 
 	// list ingredients
