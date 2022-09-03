@@ -32,7 +32,7 @@ func createCocktail() cocktail {
 func promptOptions(c cocktail) {
 	reader := bufio.NewReader(os.Stdin)
 
-	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)", reader)
+	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)\n", reader)
 	fmt.Println(opt)
 
 	switch opt {
@@ -41,7 +41,7 @@ func promptOptions(c cocktail) {
 		amount, _ := getInput("Ingredient amount(mls): ", reader)
 
 		// To return amount in an int(not the default string)
-		a, err := strconv.ParseUint(amount, 16, 64)
+		a, err := strconv.ParseUint(amount, 0, 64)
 
 		// error will be nil if everything is good
 		if err != nil {
@@ -54,12 +54,14 @@ func promptOptions(c cocktail) {
 		fmt.Printf("Added: %v %vmls \n", ingredient, amount)
 		promptOptions(c)
 	case "i":
-		instructions, _ := getInput("Instructions to create a cocktail: ", reader)
+		instructions, _ := getInput("Instructions to create the cocktail: ", reader)
+
+		c.addIntructions(instructions)
 
 		fmt.Println(instructions)
 		promptOptions(c)
 	case "s":
-		fmt.Println("You chose s")
+		fmt.Println("You chose to save the cocktail", c)
 	default:
 		fmt.Println("You did not choose a valid option")
 		promptOptions(c)
