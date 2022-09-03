@@ -31,6 +31,9 @@ func (c *cocktail) format() string {
 		fs += fmt.Sprintf("Ingredient: %-20v - Amount(mls): %v \n", key, value)
 	}
 
+	// add instructions
+	fs += fmt.Sprintf("Instructions: %v\n", c.instructions)
+
 	return fs
 }
 
@@ -41,7 +44,7 @@ func (c *cocktail) addIngredients(name string, amount uint64) {
 
 // add instructions
 func (c *cocktail) addIntructions(instructions string) {
-	c.instructions = instructions
+	c.instructions += instructions + "\n"
 }
 
 // save cocktail - need to be saved in byte slice format
