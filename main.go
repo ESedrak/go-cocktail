@@ -37,7 +37,7 @@ func promptOptions(c cocktail) {
 
 	switch opt {
 	case "a":
-		name, _ := getInput("Ingredient name: ", reader)
+		ingredient, _ := getInput("Ingredient: ", reader)
 		amount, _ := getInput("Ingredient amount(mls): ", reader)
 
 		// To return amount in an int(not the default string)
@@ -49,12 +49,13 @@ func promptOptions(c cocktail) {
 			promptOptions(c)
 		}
 
-		c.addIngredients(name, a)
+		c.addIngredients(ingredient, a)
 
-		fmt.Printf("Added: %v %vmls \n", name, amount)
+		fmt.Printf("Added: %v %vmls \n", ingredient, amount)
 		promptOptions(c)
 	case "i":
 		instructions, _ := getInput("Instructions to create a cocktail: ", reader)
+
 		fmt.Println(instructions)
 		promptOptions(c)
 	case "s":
