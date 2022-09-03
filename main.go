@@ -32,7 +32,7 @@ func createCocktail() cocktail {
 func promptOptions(c cocktail) {
 	reader := bufio.NewReader(os.Stdin)
 
-	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)\n", reader)
+	opt, _ := getInput("Choose option (a - Add an ingredient/amount, i - Add Instructions, s - Save Cocktail)\n", reader)
 
 	switch opt {
 	case "a":
@@ -57,7 +57,6 @@ func promptOptions(c cocktail) {
 
 		c.addIntructions(instructions)
 
-		fmt.Println(instructions)
 		promptOptions(c)
 	case "s":
 		c.save()
