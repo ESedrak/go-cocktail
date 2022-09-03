@@ -32,7 +32,7 @@ func (c *cocktail) format() string {
 	}
 
 	// add instructions
-	fs += fmt.Sprintf("Instructions: %v\n", c.instructions)
+	fs += fmt.Sprintf("Instructions: %v", c.instructions)
 
 	return fs
 }

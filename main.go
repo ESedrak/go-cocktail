@@ -37,14 +37,14 @@ func promptOptions(c cocktail) {
 	switch opt {
 	case "a":
 		ingredient, _ := getInput("Ingredient: ", reader)
-		amount, _ := getInput("Ingredient amount(mls): ", reader)
+		amount, _ := getInput("Amount(mls): ", reader)
 
 		// To return amount in an int(not the default string)
 		a, err := strconv.ParseUint(amount, 0, 64)
 
 		// error will be nil if everything is good
 		if err != nil {
-			fmt.Println("The amount must be a number")
+			fmt.Println("Amount must be a whole number")
 			promptOptions(c)
 		}
 
