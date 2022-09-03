@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type cocktail struct {
 	name         string
@@ -39,4 +42,16 @@ func (c *cocktail) addIngredients(name string, amount uint64) {
 // add instructions
 func (c *cocktail) addIntructions(instructions string) {
 	c.instructions = instructions
+}
+
+// save cocktail - need to be saved in byte slice format
+func (c *cocktail) save() {
+	data := []byte(c.format())
+
+	err := os.WriteFile("cocktails/"+c.name+".txt", data, 0644)
+
+	if err != nil {
+		panic(err)
+	}
+
 }

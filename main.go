@@ -33,7 +33,6 @@ func promptOptions(c cocktail) {
 	reader := bufio.NewReader(os.Stdin)
 
 	opt, _ := getInput("Choose option (a - add an ingredient, i - add instructions, s - save bill)\n", reader)
-	fmt.Println(opt)
 
 	switch opt {
 	case "a":
@@ -61,7 +60,8 @@ func promptOptions(c cocktail) {
 		fmt.Println(instructions)
 		promptOptions(c)
 	case "s":
-		fmt.Println("You chose to save the cocktail", c)
+		c.save()
+		fmt.Println("Saved file:", c.name)
 	default:
 		fmt.Println("You did not choose a valid option")
 		promptOptions(c)

@@ -1,0 +1,4 @@
+Cocktail list 
+Ingredient: Agave syrup          - Amount(mls): 15 
+Ingredient: Vodka                - Amount(mls): 60 
+Ingredient: Lime                 - Amount(mls): 30 

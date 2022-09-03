@@ -1,0 +1,4 @@
+Cocktail list 
+Ingredient: Gin                  - Amount(mls): 60 
+Ingredient: Tonic                - Amount(mls): 200 
+Ingredient: Simple syrup         - Amount(mls): 15 
