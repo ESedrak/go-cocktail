@@ -41,7 +41,15 @@ func promptOptions(c cocktail) {
 		amount, _ := getInput("Ingredient amount(mls): ", reader)
 
 		// To return amount in an int(not the default string)
-		a, err := strconv.ParseUint(amount, 64)
+		a, err := strconv.ParseUint(amount, 16, 64)
+
+		// error will be nil if everything is good
+		if err != nil {
+			fmt.Println("The amount must be a number")
+			promptOptions(c)
+		}
+
+		c.addIngredients(name, a)
 
 		fmt.Printf("Added: %v %vmls \n", name, amount)
 		promptOptions(c)

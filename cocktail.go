@@ -4,7 +4,7 @@ import "fmt"
 
 type cocktail struct {
 	name         string
-	ingredients  map[string]uint16
+	ingredients  map[string]uint64
 	instructions string
 }
 
@@ -12,7 +12,7 @@ type cocktail struct {
 func oneCocktail(name string) cocktail {
 	c := cocktail{
 		name:         name,
-		ingredients:  map[string]uint16{},
+		ingredients:  map[string]uint64{},
 		instructions: "",
 	}
 
@@ -32,7 +32,7 @@ func (c *cocktail) format() string {
 }
 
 // add ingredients
-func (c *cocktail) addIngredients(name string, amount uint16) {
+func (c *cocktail) addIngredients(name string, amount uint64) {
 	c.ingredients[name] = amount
 }
 
